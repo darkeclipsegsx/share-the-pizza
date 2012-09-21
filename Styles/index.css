@@ -135,7 +135,7 @@ input:focus {
 #logInCloseButtonText {
 	text-align:center;
 	margin-top:-.1em;
-	font-weight:bold;
+	/*font-weight:bold;*/
 }
 
 #logInDiv {
@@ -224,7 +224,7 @@ h1 {
 #signUpCloseButtonText {
 	text-align:center;
 	margin-top:-.1em;
-	font-weight:bold;
+	/*font-weight:bold;*/
 }
 
 #signUpContents {
