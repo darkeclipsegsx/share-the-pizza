@@ -83,7 +83,7 @@ function centerPopUp() {
 }
 
 function setDefaultTextForInputs() {
-	$('input').each(function () {
+	$('input[type="text"], input[type="password"]').each(function () {
 		this.value = $(this).attr('title');
 		$(this).addClass('text-label');
 

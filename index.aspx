@@ -49,7 +49,7 @@
 					<input id="passwordTextInput" type="password" title="Enter Password" /></span>
 				<div id="loginLinks">
 					<a href="#" id="forgotPasswordLink">Forgot your password?</a>
-					<button id="loginButton" type="button">Log In</button>
+					<asp:Button ID="loginButton" runat="server" Text="Log In" OnClick="loginButton_Click" />
 				</div>
 			</div>
 		</div>

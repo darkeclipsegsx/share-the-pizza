@@ -13,5 +13,10 @@ namespace ShareThePizza
 		{
 
 		}
+
+		protected void loginButton_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
