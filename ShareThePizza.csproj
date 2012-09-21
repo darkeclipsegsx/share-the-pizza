@@ -64,6 +64,7 @@
     <Content Include="JavaScript\index\main.js" />
     <Content Include="JavaScript\jQuery\jquery-1.8.0.min.js" />
     <Content Include="JavaScript\jQuery\jquery-ui-1.8.23.custom.min.js" />
+    <Content Include="Services\LoginService.asmx" />
     <Content Include="Styles\Images\chanamasala.jpg" />
     <Content Include="Styles\Images\mexicannachos.jpg" />
     <Content Include="Styles\Images\veggiepizza.jpg" />
@@ -82,7 +83,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
