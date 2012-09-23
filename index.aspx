@@ -26,6 +26,7 @@
 				</div>
 			</div>
 			<div id="bodyDiv">
+			<div id="siteShortInfo"><div id="infoInnerText1">"Keep the secrets to your favorite recipes in the family."</div></div>
 				<div id="imageScroller">
 				<div id="slides">
             <div class="slides_container">
@@ -41,10 +42,7 @@
             </div>						
         </div>
 					
-				</div>
-				<div id="siteShortInfo"><div id="infoInnerText1">Welcome!</div> <div id="infoInnerText2"> We are a private recipe sharing network to keep those secret recipes secret!</div>
-				<div id="infoInnerText3">Click Sign Up to request a log in or Log in to begin.</div>
-				</div>
+				</div>				
 			</div>
 			<div id="footer">
 				<ul id="footerLinks">

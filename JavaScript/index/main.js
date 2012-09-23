@@ -54,6 +54,12 @@ $(document).ready(function () {
 		$('#signUpDiv').fadeOut("slow");
 		$('#signUpCloseButton').fadeOut("slow");		
 	});
+
+	$('#userNameTextInput, #passwordTextInput').keyup(function (event) {
+		if (event.keyCode == 13) {
+			$('#loginButton').click();
+		}
+	});	
 });
 
 $(document).keyup(function (event) {
