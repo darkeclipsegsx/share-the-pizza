@@ -6,8 +6,10 @@
 <head runat="server">
 	<title>Oo that looks good, share the pizza man!</title>
 	<link href="Styles/index.css" rel="stylesheet" />
+	<link href="Styles/carousel.css" rel="stylesheet" />
 	<script src="JavaScript/jQuery/jquery-1.8.0.min.js"></script>
 	<script src="JavaScript/jQuery/jquery-ui-1.8.23.custom.min.js"></script>
+	<script src="JavaScript/jQuery/slides.min.jquery.js"></script>
 	<script src="JavaScript/across/main.js"></script>
 	<script src="JavaScript/index/main.js"></script>
 </head>
@@ -25,9 +27,24 @@
 			</div>
 			<div id="bodyDiv">
 				<div id="imageScroller">
-					<img src="Styles/Images/veggiepizza.jpg" />
+				<div id="slides">
+            <div class="slides_container">
+                <div>
+                    <img src="Styles/Images/veggiepizza.jpg" />
+                </div>
+                <div>
+									<img src="Styles/Images/chanamasala.jpg" />                    
+                </div>
+                <div>
+									<img src="Styles/Images/mexicannachos.jpg" />
+                </div>                
+            </div>						
+        </div>
+					
 				</div>
-				<div id="siteShortInfo">Something goes here</div>
+				<div id="siteShortInfo"><div id="infoInnerText1">Welcome to Share the Pizza!</div> <div id="infoInnerText2"> We are a private recipe sharing network to keep those secret recipes secret!</div>
+				<div id="infoInnerText3">Click Sign Up to request a log in or Log in to begin</div>
+				</div>
 			</div>
 			<div id="footer">
 				<ul id="footerLinks">
@@ -44,12 +61,15 @@
 			<div id="logInContents">
 				<h1>Log in to Share the Pizza</h1>
 				<span>
-					<input type="text" id="userNameTextInput" title="Enter Username" /></span>
+					<input type="text" id="userNameTextInput" title="Enter Username" runat="server" /></span>
 				<span>
-					<input id="passwordTextInput" type="password" title="Enter Password" /></span>
+					<input id="passwordTextInput" type="password" title="Enter Password" runat="server"/></span>
+					<span>
+					<label id="failedLoginLabel" runat="server"></label>
+					</span>
 				<div id="loginLinks">
 					<a href="#" id="forgotPasswordLink">Forgot your password?</a>
-					<asp:Button ID="loginButton" runat="server" Text="Log In" OnClick="loginButton_Click" />
+					<asp:Button ID="loginButton" runat="server" Text="Log In" OnClick="loginButton_Click" UseSubmitBehavior="false" />
 				</div>
 			</div>
 		</div>

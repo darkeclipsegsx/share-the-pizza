@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="LoginService.asmx.cs" Class="DeliveryService.Service1" %>
+﻿<%@ WebService Language="C#" CodeBehind="LoginService.asmx.cs" Class="ShareThePizza.Services.LoginService" %>

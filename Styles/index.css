@@ -235,10 +235,8 @@ h1 {
 
 #imageScroller {
 	width:690px;
-	height:342px;
-	float:right;
-	margin-right:1em;
-	border: 1px black groove;
+	height:380px;
+	float:right;	
 }
 
 #siteShortInfo {
@@ -246,5 +244,29 @@ h1 {
 	z-index: 1;
 	float: left;
 	width: 240px;
-	height: 342px;
+	height: 335px;
+	box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80);
+  -moz-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80);
+  -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80);	
+	padding:5px;	
+}
+
+#failedLoginLabel {
+	color:red;
+	font-size:smaller;
+}
+
+#infoInnerText1
+ {
+	margin-left:10px;	
+}
+
+#infoInnerText2 {
+	margin-top:60px;
+	margin-left:10px;	
+}
+
+#infoInnerText3 {
+	margin-top:60px;
+	margin-left:10px;	
 }

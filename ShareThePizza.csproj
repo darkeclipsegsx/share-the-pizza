@@ -72,15 +72,25 @@
     <Content Include="JavaScript\index\main.js" />
     <Content Include="JavaScript\jQuery\jquery-1.8.0.min.js" />
     <Content Include="JavaScript\jQuery\jquery-ui-1.8.23.custom.min.js" />
+    <Content Include="JavaScript\jQuery\slides.min.jquery.js" />
     <Content Include="Services\MongoDlls\MongoDB.Bson.dll" />
     <Content Include="Services\MongoDlls\MongoDB.Driver.dll" />
     <Content Include="Services\LoginService.asmx" />
+    <Content Include="Styles\carousel.css" />
+    <Content Include="Styles\Images\arrow-next.png" />
+    <Content Include="Styles\Images\arrow-prev.png" />
     <Content Include="Styles\Images\chanamasala.jpg" />
+    <Content Include="Styles\Images\loading.gif" />
     <Content Include="Styles\Images\mexicannachos.jpg" />
+    <Content Include="Styles\Images\pagination.png" />
     <Content Include="Styles\Images\veggiepizza.jpg" />
     <Content Include="Styles\index.css" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\LoginService\LoginService.disco" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="index.aspx.cs">
@@ -91,6 +101,11 @@
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Services\Exceptions.cs" />
     <Compile Include="Services\Login.cs" />
     <Compile Include="Services\LoginService.asmx.cs">
@@ -98,16 +113,19 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\Peep.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Web References\LoginService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Profile2.pubxml" />
+    <Content Include="Web References\LoginService\LoginService.wsdl" />
+    <Content Include="Web References\LoginService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -117,6 +135,22 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:55710/Services/LoginService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\LoginService\</RelPath>
+      <UpdateFromURL>http://localhost:55710/Services/LoginService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ShareThePizza_LoginService_LoginService</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

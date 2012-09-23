@@ -1,6 +1,17 @@
 ﻿var isLoginPopUpVisible = false; //Is the login form visible
 var isSignUpPopUpVisible = false; //Is the sign up form visible
 
+$(function () { //Make the pretty!
+	$("#slides").slides({
+		preload: true,
+		preloadImage: 'Styles/Images/loading.gif',
+		play: 5000,
+		pause: 3000,
+		hoverPause: true,
+		pagination: true
+	});
+});
+
 $(document).ready(function () {
 	centerPopUp(); //Center all popups to the middle of the window
 	setDefaultTextForInputs(); //Sets all the default text values in text inputs to be their title attr value

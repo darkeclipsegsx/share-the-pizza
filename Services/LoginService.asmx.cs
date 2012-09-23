@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 
-namespace ShareThePizza
+namespace ShareThePizza.Services
 {
     /// <summary>
     /// Summary description for Service1
