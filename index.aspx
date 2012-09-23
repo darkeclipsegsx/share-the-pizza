@@ -42,8 +42,8 @@
         </div>
 					
 				</div>
-				<div id="siteShortInfo"><div id="infoInnerText1">Welcome to Share the Pizza!</div> <div id="infoInnerText2"> We are a private recipe sharing network to keep those secret recipes secret!</div>
-				<div id="infoInnerText3">Click Sign Up to request a log in or Log in to begin</div>
+				<div id="siteShortInfo"><div id="infoInnerText1">Welcome!</div> <div id="infoInnerText2"> We are a private recipe sharing network to keep those secret recipes secret!</div>
+				<div id="infoInnerText3">Click Sign Up to request a log in or Log in to begin.</div>
 				</div>
 			</div>
 			<div id="footer">

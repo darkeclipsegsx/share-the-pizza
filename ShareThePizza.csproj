@@ -77,8 +77,6 @@
     <Content Include="Services\MongoDlls\MongoDB.Driver.dll" />
     <Content Include="Services\LoginService.asmx" />
     <Content Include="Styles\carousel.css" />
-    <Content Include="Styles\Images\arrow-next.png" />
-    <Content Include="Styles\Images\arrow-prev.png" />
     <Content Include="Styles\Images\chanamasala.jpg" />
     <Content Include="Styles\Images\loading.gif" />
     <Content Include="Styles\Images\mexicannachos.jpg" />
@@ -165,7 +163,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>52544</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:55710/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

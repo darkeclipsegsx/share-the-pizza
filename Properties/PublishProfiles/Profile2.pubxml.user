@@ -8,20 +8,38 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
     <LastUsedPlatform>Any CPU</LastUsedPlatform>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAgKz2NKRhyUuoBeXFWYF1DAAAAAACAAAAAAAQZgAAAAEAACAAAACol70bDgMZVDXrY/hsKAZ/3xbZ1UdMks5bsVnTHHbnBgAAAAAOgAAAAAIAACAAAABq9mC6umO5gqfifYysRbh/lP7oEW+t3SfTJJ0ow7/AUiAAAACwAHjNrqMMVK+9br1DOPBeyC2tcu7TyLMJ0PWXQ9PkI0AAAABg82vBLrEZlyDda09R3MiQoCoFg7WUHRzY6GvhaNbYW8IeEpekEi6Jy2715oNWodqP2ncILT9Mzr7TnLbT+R3m</EncryptedPassword>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="about.html">
+      <publishTime>09/16/2012 16:02:17</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Bson.dll">
+      <publishTime>09/20/2012 22:15:23</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Driver.dll">
+      <publishTime>09/20/2012 22:15:23</publishTime>
+    </File>
     <File Include="bin/ShareThePizza.dll">
-      <publishTime>09/16/2012 15:53:40</publishTime>
+      <publishTime>09/22/2012 20:55:51</publishTime>
+    </File>
+    <File Include="bin/ShareThePizza.XmlSerializers.dll">
+      <publishTime>09/22/2012 20:55:51</publishTime>
+    </File>
+    <File Include="contact.html">
+      <publishTime>09/16/2012 16:02:30</publishTime>
+    </File>
+    <File Include="index.aspx">
+      <publishTime>09/22/2012 21:26:42</publishTime>
     </File>
     <File Include="index.html">
       <publishTime>09/16/2012 15:41:38</publishTime>
     </File>
     <File Include="JavaScript/across/main.js">
-      <publishTime>09/16/2012 14:14:58</publishTime>
+      <publishTime>09/20/2012 22:50:55</publishTime>
     </File>
     <File Include="JavaScript/index/main.js">
-      <publishTime>09/16/2012 15:28:55</publishTime>
+      <publishTime>09/22/2012 20:31:57</publishTime>
     </File>
     <File Include="JavaScript/jQuery/jquery-1.8.0.min.js">
       <publishTime>09/12/2012 21:53:32</publishTime>
@@ -29,11 +47,53 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="JavaScript/jQuery/jquery-ui-1.8.23.custom.min.js">
       <publishTime>09/12/2012 21:53:32</publishTime>
     </File>
+    <File Include="JavaScript/jQuery/slides.min.jquery.js">
+      <publishTime>09/22/2012 19:27:47</publishTime>
+    </File>
+    <File Include="Properties/Settings.settings">
+      <publishTime>09/22/2012 15:05:50</publishTime>
+    </File>
+    <File Include="Services/LoginService.asmx">
+      <publishTime>09/22/2012 15:03:04</publishTime>
+    </File>
+    <File Include="Services/MongoDlls/MongoDB.Bson.dll">
+      <publishTime>09/20/2012 22:15:23</publishTime>
+    </File>
+    <File Include="Services/MongoDlls/MongoDB.Driver.dll">
+      <publishTime>09/20/2012 22:15:23</publishTime>
+    </File>
+    <File Include="Styles/carousel.css">
+      <publishTime>09/22/2012 20:39:04</publishTime>
+    </File>
+    <File Include="Styles/Images/chanamasala.jpg">
+      <publishTime>09/20/2012 19:55:53</publishTime>
+    </File>
+    <File Include="Styles/Images/loading.gif">
+      <publishTime>09/22/2012 19:56:19</publishTime>
+    </File>
+    <File Include="Styles/Images/mexicannachos.jpg">
+      <publishTime>09/16/2012 21:32:47</publishTime>
+    </File>
+    <File Include="Styles/Images/pagination.png">
+      <publishTime>09/22/2012 19:56:19</publishTime>
+    </File>
+    <File Include="Styles/Images/veggiepizza.jpg">
+      <publishTime>09/16/2012 21:30:36</publishTime>
+    </File>
     <File Include="Styles/index.css">
-      <publishTime>09/16/2012 15:38:38</publishTime>
+      <publishTime>09/22/2012 21:33:07</publishTime>
+    </File>
+    <File Include="Web References/LoginService/LoginService.disco">
+      <publishTime>09/22/2012 15:05:49</publishTime>
+    </File>
+    <File Include="Web References/LoginService/LoginService.wsdl">
+      <publishTime>09/22/2012 15:05:49</publishTime>
+    </File>
+    <File Include="Web References/LoginService/Reference.map">
+      <publishTime>09/22/2012 15:05:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/16/2012 15:53:42</publishTime>
+      <publishTime>09/22/2012 21:33:30</publishTime>
     </File>
   </ItemGroup>
 </Project>
