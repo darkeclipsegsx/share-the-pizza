@@ -40,6 +40,7 @@ $(document).ready(function () {
 		$('#logInCloseButton').fadeIn("slow");
 		$('#logInDiv').fadeIn("slow");
 		isLoginPopUpVisible = true;
+		$('#userNameTextInput').focus();
 	});
 
 	$('#signUpLink').click(function () { //If the sign up link is clicked

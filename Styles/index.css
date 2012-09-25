@@ -74,8 +74,8 @@ input:focus {
 }
 
 #bodyDiv {
-	margin-top:1em;
-	height: 560px;
+	margin-top:.3em;
+	height: 540px;
 }
 
 #footer {
@@ -165,11 +165,13 @@ h1 {
 #userNameTextInput {
 	margin-top:2em;
 	width:245px;
+	padding-left:5px;
 }
 
 #passwordTextInput {
 	margin-top:1em;
 	width:245px;
+	padding-left:5px;
 }
 
 #loginLinks {
@@ -249,7 +251,7 @@ h1 {
   -moz-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80);
   -webkit-box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.80);*/	
 	/*padding:5px;*/
-	margin-bottom:1.5em;
+	margin-bottom:1em;
 }
 
 #failedLoginLabel {
@@ -259,6 +261,6 @@ h1 {
 
 #infoInnerText1
  {
-	font-size:larger;	
+	font-size:13px;	
 	color:black;
 }

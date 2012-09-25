@@ -26,7 +26,7 @@
 				</div>
 			</div>
 			<div id="bodyDiv">
-			<div id="siteShortInfo"><div id="infoInnerText1">"Keep the secrets to your favorite recipes in the family."</div></div>
+			<div id="siteShortInfo"><div id="infoInnerText1">Keep the secrets to your favorite recipes in the family.</div></div>
 				<div id="imageScroller">
 				<div id="slides">
             <div class="slides_container">

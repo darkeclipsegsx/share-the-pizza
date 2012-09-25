@@ -30,16 +30,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/16/2012 16:02:30</publishTime>
     </File>
     <File Include="index.aspx">
-      <publishTime>09/22/2012 23:46:59</publishTime>
+      <publishTime>09/23/2012 18:01:11</publishTime>
     </File>
     <File Include="index.html">
       <publishTime>09/16/2012 15:41:38</publishTime>
     </File>
     <File Include="JavaScript/across/main.js">
-      <publishTime>09/22/2012 23:46:59</publishTime>
+      <publishTime>09/23/2012 18:01:02</publishTime>
     </File>
     <File Include="JavaScript/index/main.js">
-      <publishTime>09/22/2012 21:51:00</publishTime>
+      <publishTime>09/23/2012 18:33:13</publishTime>
     </File>
     <File Include="JavaScript/jQuery/jquery-1.8.0.min.js">
       <publishTime>09/12/2012 21:53:32</publishTime>
@@ -81,7 +81,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/22/2012 23:13:17</publishTime>
     </File>
     <File Include="Styles/index.css">
-      <publishTime>09/23/2012 00:00:19</publishTime>
+      <publishTime>09/23/2012 18:19:02</publishTime>
     </File>
     <File Include="Web References/LoginService/LoginService.disco">
       <publishTime>09/22/2012 15:05:49</publishTime>
@@ -93,7 +93,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/22/2012 15:05:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/23/2012 00:00:34</publishTime>
+      <publishTime>09/23/2012 18:33:32</publishTime>
     </File>
   </ItemGroup>
 </Project>
