@@ -30,7 +30,7 @@ namespace ShareThePizza
 			if(loggedInSucc) {
 				ClientScript.RegisterStartupScript(this.GetType(), "alertLoggedInSucc", "alert('Logged in!');", true);				
 			} else {
-				failedLoginLabel.InnerText = "The User name or password inputted was incorrect.";
+				failedLoginLabel.InnerText = "The username or password entered was incorrect.";
 			}
 		}
 	}

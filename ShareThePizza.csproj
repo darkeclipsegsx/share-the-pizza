@@ -105,6 +105,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\Exceptions.cs" />
+    <Compile Include="Services\Invitee.cs" />
     <Compile Include="Services\Login.cs" />
     <Compile Include="Services\LoginService.asmx.cs">
       <DependentUpon>LoginService.asmx</DependentUpon>

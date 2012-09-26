@@ -70,7 +70,7 @@ namespace ShareThePizza.Services
 
         }
         [WebMethod]
-        private MongoCollection<Peep> connectInvite()
+        private MongoCollection<Invitee> connectInvite()
         {
             try
             {
@@ -78,7 +78,7 @@ namespace ShareThePizza.Services
                 var server = MongoServer.Create(connectionString);
                 //MongoServer server = MongoServer.Create();
 
-                return server.GetDatabase("invitees").GetCollection<Peep>("invitees", SafeMode.True);
+                return server.GetDatabase("invitees").GetCollection<Invitee>("invitees", SafeMode.True);
             }
             catch (Exception m)
             {
@@ -94,6 +94,7 @@ namespace ShareThePizza.Services
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
+        /// 
         [WebMethod]
         public bool LoginUser(string username, string password)
         {
@@ -133,8 +134,7 @@ namespace ShareThePizza.Services
         }
 
         /// <summary>
-        /// Returns true if successful, if false error will be written to log file (Errlog.txt)
-        /// Will need a permanent file location.....
+        /// Returns true if successful
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
@@ -533,6 +533,54 @@ namespace ShareThePizza.Services
             System.Security.Cryptography.SHA256 sha = new System.Security.Cryptography.SHA256Managed();
             byte[] newKey = sha.ComputeHash(Encoding.Unicode.GetBytes(combined));
             return "This what " + input + " looks like encyrpted :" + Encoding.Unicode.GetString(newKey);
+        }
+
+        [WebMethod]
+        private byte[] salt(int size)
+        {
+            System.Security.Cryptography.RandomNumberGenerator g = System.Security.Cryptography.RandomNumberGenerator.Create();
+            byte[] b = new byte[size];
+            g.GetBytes(b);
+            return b;
+        }
+
+        /// <summary>
+        /// Adds an invitee to invitees db
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string AddInvitee(string email)
+        {
+            if (!validateEmail(email))
+            {
+                return null;
+            }
+            MongoCollection<Invitee> invitees = connectInvite();
+            DateTime now = DateTime.Now;
+            DateTime expirationDate = now.AddDays(1);
+            byte[] token = salt(5);
+            string tokenToString = Encoding.ASCII.GetString(token);
+
+            tokenToString = generateToken();
+            Invitee inviteeToAdd = new Invitee(email, now, expirationDate, tokenToString);
+            invitees.Insert<Invitee>(inviteeToAdd);
+
+            return tokenToString;
+        }
+
+        [WebMethod]
+        private string generateToken()
+        {
+            string strPwdchar = "abcdefghijklmnopqrstuvwxyz0123456789#+@&$ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string strPwd = "";
+            Random rnd = new Random();
+            for (int i = 0; i <= 7; i++)
+            {
+                int iRandom = rnd.Next(0, strPwdchar.Length - 1);
+                strPwd += strPwdchar.Substring(iRandom, 1);
+            }
+            return strPwd;
         }
     }
 }
