@@ -26,7 +26,7 @@ namespace ShareThePizza.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:55710/Services/LoginService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://sharethepizza.niravapatel.com/Services/LoginService.asmx")]
         public string ShareThePizza_LoginService_LoginService {
             get {
                 return ((string)(this["ShareThePizza_LoginService_LoginService"]));

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ShareThePizza_LoginService_LoginService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:55710/Services/LoginService.asmx</Value>
+      <Value Profile="(Default)">http://sharethepizza.niravapatel.com/Services/LoginService.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

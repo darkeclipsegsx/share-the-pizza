@@ -87,7 +87,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
-    <Content Include="Web References\LoginService\LoginService.disco" />
+    <None Include="Web References\LoginService\LoginService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -120,11 +120,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Profile2.pubxml" />
-    <Content Include="Web References\LoginService\LoginService.wsdl" />
-    <Content Include="Web References\LoginService\Reference.map">
+    <None Include="Web References\LoginService\LoginService.wsdl" />
+    <None Include="Web References\LoginService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,10 +139,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:55710/Services/LoginService.asmx">
+    <WebReferenceUrl Include="http://sharethepizza.niravapatel.com/Services/LoginService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\LoginService\</RelPath>
-      <UpdateFromURL>http://localhost:55710/Services/LoginService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://sharethepizza.niravapatel.com/Services/LoginService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
