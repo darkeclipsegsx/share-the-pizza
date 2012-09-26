@@ -7,6 +7,7 @@ using MongoDB.Bson;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using System.Collections;
 
 namespace ShareThePizza.Services
 {
@@ -578,13 +579,30 @@ namespace ShareThePizza.Services
         }
 
 
+        [WebMethod]
+        public int checkInviteeToken(string token)
+        {
+            MongoCollection<Invitee> invitees = connectInvitee();
+            IMongoQuery tokenToFind = Query.EQ("token", token);
+            Invitee checkInvitee = invitees.FindOne(tokenToFind);
+            if (checkInvitee == null)
+            {
+                return -2;//Invitee does not exist
+            }
+            if (checkInvitee.expirationDate.AsDateTime.CompareTo(DateTime.Now) > 0)//Invitee expiration date is before today
+            {
+                return -1;//token is invalid
+            }
+            return 0;
+        }
+
         /// <summary>
         /// Returns whether or not a token was valid; 0 if valid, -1 if invalid, -2 token doesn't exist
         /// </summary>
         /// <param name="token"></param>
         /// <returns></returns>
         [WebMethod]
-        public int CheckandRemove(string token)
+        public int CheckandRemoveInvitee(string token)
         {
             MongoCollection<Invitee> invitees = connectInvitee();
             IMongoQuery tokenToFind = Query.EQ("token", token);
@@ -617,6 +635,16 @@ namespace ShareThePizza.Services
             else return false;
         }
 
+        [WebMethod]
+        public static BsonArray ToBsonDocumentArray(this IEnumerable list)
+        {
+            var array = new BsonArray();
+            foreach (var item in list)
+            {
+                array.Add(item.ToBson());
+            }
+            return array;
+        }
 
         [WebMethod]
         private string generateToken()
