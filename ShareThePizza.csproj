@@ -112,6 +112,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\Peep.cs" />
+    <Compile Include="Services\Recipe.cs" />
     <Compile Include="Web References\LoginService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
