@@ -69,24 +69,6 @@ namespace ShareThePizza.Services
             }
 
         }
-        [WebMethod]
-        private MongoCollection<Invitee> connectInvite()
-        {
-            try
-            {
-                var connectionString = "mongodb://localhost/?safe=true";
-                var server = MongoServer.Create(connectionString);
-                //MongoServer server = MongoServer.Create();
-
-                return server.GetDatabase("invitees").GetCollection<Invitee>("invitees", SafeMode.True);
-            }
-            catch (Exception m)
-            {
-                //write
-                //Console.WriteLine(m.HelpLink);
-                return null;
-            }
-        }
 
         /// <summary>
         /// 
@@ -536,6 +518,26 @@ namespace ShareThePizza.Services
         }
 
         [WebMethod]
+        private MongoCollection<Invitee> connectInvitee()
+        {
+            try
+            {
+                var connectionString = "mongodb://localhost/?safe=true";
+                var server = MongoServer.Create(connectionString);
+                //MongoServer server = MongoServer.Create();
+
+                return server.GetDatabase("invitees").GetCollection<Invitee>("invitees", SafeMode.True);
+            }
+            catch (Exception m)
+            {
+                //write
+                //Console.WriteLine(m.HelpLink);
+                return null;
+            }
+        }
+
+
+        [WebMethod]
         private byte[] salt(int size)
         {
             System.Security.Cryptography.RandomNumberGenerator g = System.Security.Cryptography.RandomNumberGenerator.Create();
@@ -556,7 +558,13 @@ namespace ShareThePizza.Services
             {
                 return null;
             }
-            MongoCollection<Invitee> invitees = connectInvite();
+            MongoCollection<Invitee> invitees = connectInvitee();
+            IMongoQuery checkIfExists = Query.EQ("email", email);
+            Invitee inviteeCheck = invitees.FindOne(checkIfExists);
+            if (inviteeCheck != null)
+            {
+                return null;
+            }
             DateTime now = DateTime.Now;
             DateTime expirationDate = now.AddDays(1);
             byte[] token = salt(5);
@@ -568,6 +576,47 @@ namespace ShareThePizza.Services
 
             return tokenToString;
         }
+
+
+        /// <summary>
+        /// Returns whether or not a token was valid; 0 if valid, -1 if invalid, -2 token doesn't exist
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public int CheckandRemove(string token)
+        {
+            MongoCollection<Invitee> invitees = connectInvitee();
+            IMongoQuery tokenToFind = Query.EQ("token", token);
+            Invitee checkInvitee = invitees.FindOne(tokenToFind);
+            if (checkInvitee == null)
+            {
+                return -2;//Invitee does not exist
+            }
+            if (checkInvitee.expirationDate.AsDateTime.CompareTo(DateTime.Now) > 0)//Invitee expiration date is before today
+            {
+                return -1;//token is invalid
+            }
+            RemoveInvitee(token);
+            return 0;
+
+        }
+
+
+        [WebMethod]
+        public bool RemoveInvitee(string token)
+        {
+            MongoCollection<Invitee> invitees = connectInvitee();
+            IMongoQuery userToFind = Query<Invitee>.EQ(b => b.token, token);
+            IMongoSortBy sortBy = SortBy<Peep>.Ascending(b => b.username);
+            FindAndModifyResult fmr = invitees.FindAndRemove(userToFind, sortBy);
+            if (fmr.Ok)
+            {
+                return true;
+            }
+            else return false;
+        }
+
 
         [WebMethod]
         private string generateToken()
