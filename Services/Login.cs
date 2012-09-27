@@ -165,12 +165,12 @@ namespace ShareThePizza
                     //write username, email, hash, salt to table, login attempts, joinDate
                     MongoCollection<Peep> peeps = connectUser();
 
-                    Peep userToAdd = new Peep(username, Encoding.Unicode.GetString(newKey), email, now, Encoding.Unicode.GetString(generatedSalt), currentlyLoggedIn, loginAttempts, expires);
-                    SafeModeResult success = peeps.Insert<Peep>(userToAdd);
-                    if (!success.Ok)
-                    {
-                        throw new MongoException("Insertion failed");
-                    }
+                    //Peep userToAdd = new Peep(username, Encoding.Unicode.GetString(newKey), email, now, Encoding.Unicode.GetString(generatedSalt), currentlyLoggedIn, loginAttempts, expires);
+                    //SafeModeResult success = peeps.Insert<Peep>(userToAdd);
+                    //if (!success.Ok)
+                    //{
+                    //    throw new MongoException("Insertion failed");
+                    //}
                 }
                 if (!validatePassword(password))
                 {

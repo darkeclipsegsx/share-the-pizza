@@ -34,19 +34,19 @@ namespace ShareThePizza.Services
             this.rating = rating;
         }
 
-        /// <summary>
-        /// Potentially deprecated....
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns></returns>
-        public  BsonArray ToBsonDocumentArray(this IEnumerable list)
-        {
-            var array = new BsonArray();
-            foreach (var item in list)
-            {
-                array.Add(item.ToBson());
-            }
-            return array;
-        }
+				///// <summary>
+				///// Potentially deprecated....
+				///// </summary>
+				///// <param name="list"></param>
+				///// <returns></returns>
+				//public  BsonArray ToBsonDocumentArray(this IEnumerable list)
+				//{
+				//		var array = new BsonArray();
+				//		foreach (var item in list)
+				//		{
+				//				array.Add(item.ToBson());
+				//		}
+				//		return array;
+				//}
     }
 }
