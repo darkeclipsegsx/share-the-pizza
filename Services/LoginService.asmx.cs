@@ -79,7 +79,7 @@ namespace ShareThePizza.Services
         /// <returns></returns>
         /// 
         [WebMethod]
-        public bool LoginUser(string username, string password)
+        public string LoginUser(string username, string password)
         {
             try
             {
@@ -105,28 +105,28 @@ namespace ShareThePizza.Services
                 {
                     var updateLoggedIn = Update.Set("currentlyLoggedIn", true);
                     mongoPeeps.FindAndModify(userToFind, SortBy.Ascending(username), updateLoggedIn);
-                    return true;
+                    //Peep p = mongoPeeps.FindOne(userToFind);
+                    return p.hashedUsername.ToString();
                 }
-                else return false;
+                else return "";
             }
             catch (InvalidUserException iue)
             {
-                return false;
+                return null;
             }
 
         }
 
         /// <summary>
-        /// Returns true if successful
+        /// Returns hash of username if successful
         /// </summary>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="email"></param>
         /// <returns></returns>
         [WebMethod]
-        public bool AddNewUser(string username, string password, string email)
+        public string AddNewUser(string username, string password, string email)
         {
-            bool successful = false;
             try
             {
                 if (validateInput(username) && validatePassword(password) && validateEmail(email) && UsernameAvailable(username))
@@ -142,13 +142,15 @@ namespace ShareThePizza.Services
                     DateTime expires = now.AddDays(5);
                     //write username, email, hash, salt to table, login attempts, joinDate
                     MongoCollection<Peep> peeps = connectUser();
+                    byte[] hashedUsername = sha.ComputeHash(Encoding.Unicode.GetBytes(username));
 
-                    Peep userToAdd = new Peep(username, Encoding.Unicode.GetString(newKey), email, now, Encoding.Unicode.GetString(generatedSalt), currentlyLoggedIn, loginAttempts, expires);
+                    Peep userToAdd = new Peep(username, Encoding.Unicode.GetString(hashedUsername), Encoding.Unicode.GetString(newKey), email, now, Encoding.Unicode.GetString(generatedSalt), currentlyLoggedIn, loginAttempts, expires);
                     SafeModeResult success = peeps.Insert<Peep>(userToAdd);
                     if (!success.Ok)
                     {
                         throw new MongoException("Insertion failed");
                     }
+                    return Encoding.Unicode.GetString(hashedUsername);
                 }
                 if (!validatePassword(password))
                 {
@@ -159,10 +161,10 @@ namespace ShareThePizza.Services
             catch (Exception ex)
             {
                 //Perform a write
-                return false;
+                return null;
             }
 
-            return successful;
+            return "";
         }
 
         /// <summary>
@@ -171,10 +173,10 @@ namespace ShareThePizza.Services
         /// <param name="username"></param>
         /// <returns></returns>
         [WebMethod]
-        public bool IsLoggedIn(string username)
+        public bool IsLoggedIn(string hashedUsername)
         {
             MongoCollection<Peep> peeps = connectUser();
-            IMongoQuery userToFind = Query.EQ("username", username);
+            IMongoQuery userToFind = Query.EQ("hashedUsername", hashedUsername);
             Peep p = peeps.FindOne(userToFind);
             if (p != null)
             {
@@ -193,12 +195,12 @@ namespace ShareThePizza.Services
         /// <param name="newEmail"></param>
         /// <returns></returns>
         [WebMethod]
-        public int ChangeEmail(string username, string newEmail)
+        public int ChangeEmail(string hashedUsername, string newEmail)
         {
             try
             {
                 MongoCollection<Peep> peeps = connectUser();
-                IMongoQuery userToFind = Query<Peep>.EQ(b => b.username, username);
+                IMongoQuery userToFind = Query<Peep>.EQ(b => b.hashedUsername, hashedUsername);
                 var update = Update.Set("email", newEmail);
                 FindAndModifyResult result = peeps.FindAndModify(userToFind, null, update);
                 if (result.Ok)
@@ -220,14 +222,14 @@ namespace ShareThePizza.Services
         /// <param name="newPassword"></param>
         /// <returns></returns>
         [WebMethod]
-        public int ChangePassword(string username, string oldPassword, string newPassword)
+        public int ChangePassword(string hashedUsername, string oldPassword, string newPassword)
         {
             try
             {
                 //bool correctPassword = passwordCheck(oldPassword);
                 bool correctNewPassword = validatePassword(newPassword);
-                bool login = LoginUser(username, oldPassword);
-                if (correctNewPassword && login)
+                string login = LoginUser(hashedUsername, oldPassword);
+                if (correctNewPassword && login.Equals(hashedUsername))
                 {
 
                     //update db
@@ -239,13 +241,13 @@ namespace ShareThePizza.Services
                     SHA256 sha = new SHA256Managed();
                     byte[] newKey = sha.ComputeHash(Encoding.Unicode.GetBytes(combined));
 
-                    IMongoQuery userToFind = Query<Peep>.EQ(b => b.username, username);
+                    IMongoQuery userToFind = Query<Peep>.EQ(b => b.hashedUsername, hashedUsername);
                     var update = Update.Set("password", Encoding.Unicode.GetString(newKey));
                     var saltUpdate = Update.Set("salt", Encoding.Unicode.GetString(generatedSalt));
                     FindAndModifyResult result = peeps.FindAndModify(userToFind, null, update);
                     if (result.Ok)
                     {
-                        result = peeps.FindAndModify(userToFind, SortBy.Ascending(username), saltUpdate);
+                        result = peeps.FindAndModify(userToFind, SortBy.Ascending(hashedUsername), saltUpdate);
                         if (result.Ok)
                         {
                             return 0;
@@ -277,12 +279,12 @@ namespace ShareThePizza.Services
         /// </summary>
         /// <param name="username"></param>
         [WebMethod]
-        public void Logout(string username)
+        public void Logout(string hashedUsername)
         {
             //end current user session
             //MongoDatabase md = connectUser();
             MongoCollection<Peep> peeps = connectUser();
-            IMongoQuery userToFind = Query<Peep>.EQ(b => b.username, username);
+            IMongoQuery userToFind = Query<Peep>.EQ(b => b.hashedUsername, hashedUsername);
             UpdateBuilder update = Update.Set("currentlyLoggedIn", false);
             FindAndModifyResult result = peeps.FindAndModify(userToFind, null, update);
 
@@ -294,14 +296,14 @@ namespace ShareThePizza.Services
         /// <param name="username"></param>
         /// <returns></returns>
         [WebMethod]
-        public bool RemoveUser(string username)
+        public bool RemoveUser(string hashedUsername)
         {
             try
             {
                 //delete username from db
                 //MongoDatabase md = connectUser();
                 MongoCollection<Peep> peeps = connectUser();
-                IMongoQuery userToFind = Query<Peep>.EQ(b => b.username, username);
+                IMongoQuery userToFind = Query<Peep>.EQ(b => b.hashedUsername, hashedUsername);
                 IMongoSortBy sortBy = SortBy<Peep>.Ascending(b => b.username);
                 FindAndModifyResult fmr = peeps.FindAndRemove(userToFind, sortBy);
                 if (fmr.Ok)
@@ -523,11 +525,20 @@ namespace ShareThePizza.Services
         {
             try
             {
-                var connectionString = "mongodb://localhost/?safe=true";
-                var server = MongoServer.Create(connectionString);
+                //var connectionString = "mongodb://localhost/?safe=true";
+                //var server = MongoServer.Create(connectionString);
+                var connectionString = MongoUrl.Create("mongodb://admin:supermario@alex.mongohq.com:10071/ShareThePizza");
+                var settings = connectionString.ToServerSettings();
+                //var adminCredentials = new MongoCredentials("nicole.reed88@gmail.com", "supermario", true);
+                //settings.CredentialsStore.AddCredentials(adminCredentials);
+                //settings.CredentialsStore.AddCredentials("peeps", adminCredentials);
+                var server = MongoServer.Create(settings);
                 //MongoServer server = MongoServer.Create();
 
-                return server.GetDatabase("invitees").GetCollection<Invitee>("invitees", SafeMode.True);
+                return server.GetDatabase("ShareThePizza", settings.DefaultCredentials, SafeMode.True).GetCollection<Invitee>("invitees");
+                //MongoServer server = MongoServer.Create();
+
+                //return server.GetDatabase("invitees").GetCollection<Invitee>("invitees", SafeMode.True);
             }
             catch (Exception m)
             {
@@ -633,17 +644,6 @@ namespace ShareThePizza.Services
                 return true;
             }
             else return false;
-        }
-
-        [WebMethod]
-        public static BsonArray ToBsonDocumentArray(this IEnumerable list)
-        {
-            var array = new BsonArray();
-            foreach (var item in list)
-            {
-                array.Add(item.ToBson());
-            }
-            return array;
         }
 
         [WebMethod]

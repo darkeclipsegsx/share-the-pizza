@@ -9,6 +9,7 @@ namespace ShareThePizza
     {
         public BsonObjectId _id { get; set; }
         public BsonString username { get; set; }
+        public BsonString hashedUsername { get; set; }
         public BsonString password { get; set; }
         public BsonString email { get; set; }
         public BsonDateTime dateJoined { get; set; }
@@ -17,9 +18,10 @@ namespace ShareThePizza
         public BsonInt32 loginAttempts { get; set; }
         public BsonDateTime expirationDate { get; set; }
 
-        public Peep(string username, string password, string email, DateTime dateJoined, string salt, bool currentlyLoggedIn, int loginAttempts, DateTime expirationDate)
+        public Peep(string username, string hashedUsername, string password, string email, DateTime dateJoined, string salt, bool currentlyLoggedIn, int loginAttempts, DateTime expirationDate)
         {
             this.username = username;
+            this.hashedUsername = hashedUsername;
             this.password = password;
             this.email = email;
             this.dateJoined = dateJoined;

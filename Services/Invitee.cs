@@ -19,7 +19,7 @@ namespace ShareThePizza.Services
             this.email = email;
             this.creationDate = creationDate;
             this.expirationDate = expirationDate;
-            this.token = token;
+            this.token = token;            
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,25 +13,40 @@ namespace ShareThePizza.Services
         public BsonString submittedBy { get; set; }
         public BsonDateTime creationDate { get; set; }
         public BsonString description { get; set; }
-        public BsonArray ingredients { get; set; }
+        public BsonDocument ingredients { get; set; }
         public BsonInt32 cooktime { get; set; }//stores in minutes
-        public BsonArray instructions { get; set; }//may change to BsonString
+        public BsonDocument instructions { get; set; }//may change to BsonString
+        public BsonString backgroundTag { get; set; }
         public BsonArray tags { get; set; }
         public BsonDouble rating { get; set; }
         public BsonDocument comments { get; set; }//in progress should not be depended on
 
-        public Recipe(string submittedBy, DateTime creationDate, string description, BsonArray ingredients, TimeSpan cooktime, BsonArray instructions, BsonArray tags, float rating)
+        public Recipe(string submittedBy, DateTime creationDate, string description, Array ingredients, TimeSpan cooktime, string[] instructions, BsonString backgroundTag, BsonArray tags, float rating)
         {
             this.submittedBy = submittedBy;
             this.creationDate = creationDate;
             this.description = description;
-            this.ingredients = ingredients;
+            this.ingredients = ingredients.ToBsonDocument();
             this.cooktime = cooktime.Minutes;
-            this.instructions = instructions;
+            this.instructions = instructions.ToBsonDocument();
+            this.backgroundTag = backgroundTag;
             this.tags = tags;
             this.rating = rating;
+        }
 
-
+        /// <summary>
+        /// Potentially deprecated....
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public  BsonArray ToBsonDocumentArray(this IEnumerable list)
+        {
+            var array = new BsonArray();
+            foreach (var item in list)
+            {
+                array.Add(item.ToBson());
+            }
+            return array;
         }
     }
 }
