@@ -78,6 +78,7 @@
     <Content Include="Services\MongoDlls\MongoDB.Bson.dll" />
     <Content Include="Services\MongoDlls\MongoDB.Driver.dll" />
     <Content Include="Services\LoginService.asmx" />
+    <Content Include="Services\RecipeService.asmx" />
     <Content Include="Styles\body.css" />
     <Content Include="Styles\customMenu.css" />
     <Content Include="Styles\home.css" />
@@ -119,6 +120,10 @@
     </Compile>
     <Compile Include="Services\Peep.cs" />
     <Compile Include="Services\Recipe.cs" />
+    <Compile Include="Services\RecipeService.asmx.cs">
+      <DependentUpon>RecipeService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Web References\LoginService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
