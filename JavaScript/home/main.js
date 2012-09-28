@@ -5,5 +5,5 @@
 	arrowBorders.borderLeft = '5px solid transparent';
 	arrowBorders.borderRight = '5px solid transparent';
 
-	setUpMenu("#CAA149", 'white', childItemsBorder, arrowBorders);
+	setUpMenu("rgba(202, 161, 73, 0.8)", 'white', childItemsBorder, arrowBorders);
 });

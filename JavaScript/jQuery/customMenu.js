@@ -2,16 +2,16 @@
 function setUpMenu(menuBKColor, liFontColor, childItemsBorder, arrowProperties) {
 	$("#mainLI").html($("#mainLI").html() + '<span class="arrowDown"></span>');
 
-	$("#mainLI").css("background-color", menuBKColor);
+	$("#mainLI").css("background", menuBKColor);
 	$("#mainLI").css("color", liFontColor);
 	$(".childMenuItems").css("color", liFontColor);
-	$(".childMenuItems").css("background-color", menuBKColor);
+	$(".childMenuItems").css("background", menuBKColor);
 	$(".childMenuItems").css("border-top", childItemsBorder);	
 	$(".arrowDown").css("border-top", arrowProperties.borderTop);
 	$(".arrowDown").css("border-left", arrowProperties.borderLeft);
 	$(".arrowDown").css("border-right", arrowProperties.borderRight);
 	
-	$("#mainLI").css("width", $("#mainLI").width());
+	$("#mainLI").css("width", $("#mainLI").width() + 1);
 	$(".childMenuItems").css("width", $("#mainLI").width());
 	setArrowTop();
 	addEventToMainMenuItem();
