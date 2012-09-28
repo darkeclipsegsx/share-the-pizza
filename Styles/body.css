@@ -1,0 +1,55 @@
+﻿/*Include this file in all pages*/
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family:'Segoe UI',Arial;
+}
+
+#backgroundDiv {
+	overflow-y: hidden;
+}
+
+.splash {
+	position:fixed;
+	right:0;
+	bottom:0;
+	width:100%;
+	z-index:-1;
+	box-sizing:border-box;
+}
+
+#topBar {
+	height:3em;	
+	z-index:1;
+	margin-left:.5em;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+
+#topBar span {
+	cursor: pointer;
+	padding:10px;
+	background-color: rgb(0, 0, 0);
+}
+
+#logoArea {
+	float:left;
+	width:30%;
+	color:white;
+	font-size:35px;
+	opacity:.8;
+}
+
+#constantLinksArea {
+	float: right;
+	width: 30%;
+}
+
+#constantLinksArea ul {
+	list-style-type: none;
+}

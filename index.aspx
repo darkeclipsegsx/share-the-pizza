@@ -9,7 +9,6 @@
 	<link href="Styles/carousel.css" rel="stylesheet" />
 	<script src="JavaScript/jQuery/jquery-1.8.0.min.js"></script>
 	<script src="JavaScript/jQuery/jquery-ui-1.8.23.custom.min.js"></script>
-	<script src="JavaScript/jQuery/slides.min.jquery.js"></script>
 	<script src="JavaScript/across/main.js"></script>
 	<script src="JavaScript/index/main.js"></script>
 </head>
