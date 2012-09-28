@@ -36,6 +36,14 @@
 					</li>
 				</ul>
 			</div>
+			<div id="horizontalScrollerDiv">
+				<div id="recipeNameSection">
+				<div id="recipeNameDiv">Vegtable Pizza</div>
+				<div id="recipeSubmittedByDiv">By: <a href="#">Nirav Patel</a></div>
+				<div id="recipeRatingsDiv">5 Stars - actual starts should appear here</div>
+				</div>
+				<div id="ingredientsDiv"><h1>Ingredients</h1></div>
+			</div>
 		</div>
 	</form>
 </body>

@@ -15,7 +15,7 @@ a {
 	}
 
 #backgroundDiv {
-	overflow-y: hidden;
+	overflow-y: hidden;	
 }
 
 .splash {
@@ -70,5 +70,29 @@ a {
 	padding-left:20px;
 	padding-top:10px;
 	padding-bottom:10px;
-	padding-right:20px;
+	padding-right:20px;	
+}
+
+#horizontalScrollerDiv {
+	z-index:0;
+	position:absolute;
+	top:0;
+	left:0;
+	overflow-y:hidden;
+}
+
+#recipeNameSection {
+	position:absolute;
+	bottom:3em;
+	left:.5em;
+	padding:10px;
+}
+
+#recipeNameDiv {
+	font-size:28px;
+}
+
+#ingredientsDiv {
+	position:absolute;
+	left:20%;	
 }
