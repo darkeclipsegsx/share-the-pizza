@@ -7,24 +7,22 @@
 	<title></title>
 	<link href="Styles/body.css" rel="stylesheet" />
 	<link href="Styles/customMenu.css" rel="stylesheet" />
+	<link href="Styles/home.css" rel="stylesheet" />
 	<script src="JavaScript/jQuery/jquery-1.8.0.min.js"></script>
 	<script src="JavaScript/jQuery/jquery-ui-1.8.23.custom.min.js"></script>
 	<script src="JavaScript/jQuery/customMenu.js"></script>
-	<script>
-		$(function () {
-			var arrowBorders = new Object();
-			var childItemsBorder = '1px solid white';
-			arrowBorders.borderTop = '5px solid white';
-			arrowBorders.borderLeft = '5px solid transparent';
-			arrowBorders.borderRight = '5px solid transparent';
+	<script src="JavaScript/home/main.js"></script>
+	<script src="JavaScript/across/main.js"></script>
 
-			setUpMenu("#CAA149", 'white', childItemsBorder, arrowBorders);
-		});
-	</script>
 </head>
 <body>
 	<form id="form1" runat="server">
-		<div>
+		<div id="backgroundDiv" runat="server">
+			<img class="splash" src="Styles/Images/pizzaBG.jpg" />
+			
+			<div id="topBar"><div id="logoArea"><span title="Share the Pizza!">Share the Pizza!</span></div>
+			<div id="constantLinksArea"><ul><li>About</li><li>Contact</li></ul></div>
+			</div>
 			<div id="menu">
 				<ul id="menuTopLevelMenu">
 					<li id="mainLI"><a href="#"><span>Recipe of the Day</span></a></li>

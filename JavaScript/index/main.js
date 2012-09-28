@@ -2,14 +2,14 @@
 var isSignUpPopUpVisible = false; //Is the sign up form visible
 
 $(function () { //Make the pretty!
-	$("#slides").slides({
-		preload: true,
-		preloadImage: 'Styles/Images/loading.gif',
-		play: 5000,
-		pause: 3000,
-		hoverPause: true,
-		pagination: true
-	});
+	//$("#slides").slides({
+	//	preload: true,
+	//	preloadImage: 'Styles/Images/loading.gif',
+	//	play: 5000,
+	//	pause: 3000,
+	//	hoverPause: true,
+	//	pagination: true
+	//});
 });
 
 $(document).ready(function () {

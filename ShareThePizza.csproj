@@ -70,22 +70,18 @@
     <Content Include="home.aspx" />
     <Content Include="index.aspx" />
     <Content Include="JavaScript\across\main.js" />
+    <Content Include="JavaScript\home\main.js" />
     <Content Include="JavaScript\index\main.js" />
     <Content Include="JavaScript\jQuery\customMenu.js" />
     <Content Include="JavaScript\jQuery\jquery-1.8.0.min.js" />
     <Content Include="JavaScript\jQuery\jquery-ui-1.8.23.custom.min.js" />
-    <Content Include="JavaScript\jQuery\slides.min.jquery.js" />
     <Content Include="Services\MongoDlls\MongoDB.Bson.dll" />
     <Content Include="Services\MongoDlls\MongoDB.Driver.dll" />
     <Content Include="Services\LoginService.asmx" />
     <Content Include="Styles\body.css" />
-    <Content Include="Styles\carousel.css" />
     <Content Include="Styles\customMenu.css" />
-    <Content Include="Styles\Images\chanamasala.jpg" />
-    <Content Include="Styles\Images\loading.gif" />
-    <Content Include="Styles\Images\mexicannachos.jpg" />
-    <Content Include="Styles\Images\pagination.png" />
-    <Content Include="Styles\Images\veggiepizza.jpg" />
+    <Content Include="Styles\home.css" />
+    <Content Include="Styles\Images\pizzaBG.jpg" />
     <Content Include="Styles\index.css" />
     <Content Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -163,6 +159,7 @@
       <CachedSettingsPropName>ShareThePizza_LoginService_LoginService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
