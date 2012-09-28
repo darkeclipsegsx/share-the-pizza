@@ -1,6 +1,11 @@
 ﻿$(document).ready(function () {
-	$('#innerTitle').click(function () { //Logo click
-		window.location.href = "index.aspx";
+	$('#logoArea span').click(function () { //Logo click
+		window.location.href = "home.aspx";
 	});
-	$('#innerTitle').attr('title', 'Keep the secrets to your favorite recipes in the family.');
+
+	var fontColorToSet = $("#mainLI").css("color");
+	var backgroundColorToSet = $("#mainLI").css("background-color");
+
+	$('#logoArea span').css("color", fontColorToSet);
+	$('#logoArea span').css("background-color", backgroundColorToSet);
 });
