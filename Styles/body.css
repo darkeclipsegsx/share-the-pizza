@@ -10,6 +10,10 @@ a {
 	text-decoration: none;
 }
 
+	a:hover {
+		text-decoration: underline;
+	}
+
 #backgroundDiv {
 	overflow-y: hidden;
 }
@@ -36,8 +40,7 @@ a {
 }
 
 #topBar span {
-	cursor: pointer;
-	padding:10px;	
+	cursor: pointer;	
 }
 
 #logoArea {
@@ -46,6 +49,10 @@ a {
 	color:white;
 	font-size:35px;
 }
+
+	#logoArea span {
+		padding:10px;
+	}
 
 #constantLinksArea {
 	float: right;
@@ -60,5 +67,8 @@ a {
 
 #constantLinksArea ul li{
 	float:left;
-	padding:10px;
+	padding-left:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-right:20px;
 }
