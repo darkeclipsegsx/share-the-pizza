@@ -76,6 +76,7 @@
     <Content Include="Services\MongoDlls\MongoDB.Bson.dll" />
     <Content Include="Services\MongoDlls\MongoDB.Driver.dll" />
     <Content Include="Services\LoginService.asmx" />
+    <Content Include="Services\RecipeService.asmx" />
     <Content Include="Styles\carousel.css" />
     <Content Include="Styles\Images\chanamasala.jpg" />
     <Content Include="Styles\Images\loading.gif" />
@@ -106,13 +107,16 @@
     </Compile>
     <Compile Include="Services\Exceptions.cs" />
     <Compile Include="Services\Invitee.cs" />
-    <Compile Include="Services\Login.cs" />
     <Compile Include="Services\LoginService.asmx.cs">
       <DependentUpon>LoginService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Services\Peep.cs" />
     <Compile Include="Services\Recipe.cs" />
+    <Compile Include="Services\RecipeService.asmx.cs">
+      <DependentUpon>RecipeService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Web References\LoginService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

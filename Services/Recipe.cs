@@ -20,6 +20,8 @@ namespace ShareThePizza.Services
         public BsonArray tags { get; set; }
         public BsonDouble rating { get; set; }
         public BsonDocument comments { get; set; }//in progress should not be depended on
+        public BsonInt32 ofTheDay { get; set; }
+        public BsonDocument images { get; set; }
 
         public Recipe(string submittedBy, DateTime creationDate, string description, Array ingredients, TimeSpan cooktime, string[] instructions, BsonString backgroundTag, BsonArray tags, float rating)
         {
@@ -32,21 +34,9 @@ namespace ShareThePizza.Services
             this.backgroundTag = backgroundTag;
             this.tags = tags;
             this.rating = rating;
+            this.ofTheDay = 0;
         }
 
-        /// <summary>
-        /// Potentially deprecated....
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns></returns>
-        public  BsonArray ToBsonDocumentArray(this IEnumerable list)
-        {
-            var array = new BsonArray();
-            foreach (var item in list)
-            {
-                array.Add(item.ToBson());
-            }
-            return array;
-        }
+       
     }
 }
