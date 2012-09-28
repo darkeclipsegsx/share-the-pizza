@@ -7,5 +7,7 @@
 	var backgroundColorToSet = $("#mainLI").css("background-color");
 
 	$('#logoArea span').css("color", fontColorToSet);
-	$('#logoArea span').css("background-color", backgroundColorToSet);
+	$('#logoArea span').css("background", backgroundColorToSet);
+	$('#constantLinksArea ul').css("background", backgroundColorToSet);
+	$('#constantLinksArea ul li a').css("color", fontColorToSet);
 });

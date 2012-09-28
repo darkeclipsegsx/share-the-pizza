@@ -13,7 +13,7 @@
 	<script src="JavaScript/jQuery/customMenu.js"></script>
 	<script src="JavaScript/home/main.js"></script>
 	<script src="JavaScript/across/main.js"></script>
-
+	
 </head>
 <body>
 	<form id="form1" runat="server">
@@ -21,7 +21,7 @@
 			<img class="splash" src="Styles/Images/pizzaBG.jpg" />
 			
 			<div id="topBar"><div id="logoArea"><span title="Share the Pizza!">Share the Pizza!</span></div>
-			<div id="constantLinksArea"><ul><li>About</li><li>Contact</li></ul></div>
+			<div id="constantLinksArea"><ul><li><a href="#"><span>About</span></a></li><li><a href="#"><span>Contact</span></a></li></ul></div>
 			</div>
 			<div id="menu">
 				<ul id="menuTopLevelMenu">
